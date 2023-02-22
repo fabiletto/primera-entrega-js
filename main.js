@@ -148,6 +148,6 @@ console.log("Filter: ");
 console.log(menorValor);
 
  arraypaisesAmerica.push("Estados Unidos");
- console.log(arraypaisesAmerica)
+ console.log(arraypaisesAmerica);
  arraypaisesAmerica.pop();
- console.log(arraypaisesAmerica)
+ console.log(arraypaisesAmerica);
