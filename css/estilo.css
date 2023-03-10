@@ -1,0 +1,40 @@
+.imgPaquetes {
+    width: 200px;
+    height: 260px;
+   
+    margin-top: 3rem;
+    
+}
+
+.colorBoton {
+    color: white;
+    background-color: #707c69;
+}
+
+.colorBoton:hover {
+    background-color: blue;
+    color:white;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    width:250px ;
+    margin: 2rem;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+    cursor: default;
+    transition: all 400ms ease;
+}
+.card:hover{
+    box-shadow:5px 5px 20px rgba(0, 0, 0, 0.4) ;
+    transform: translateY(-3%);
+}
+.d-block {
+   object-fit: cover;
+background-position: center center ;
+background-repeat: no-repeat;
+
+width: auto;
+height: 290px;
+
+}
