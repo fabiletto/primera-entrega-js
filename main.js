@@ -1,4 +1,30 @@
 
+const botonDos = document.getElementById("botonDos");
+
+botonDos.addEventListener("click", () => {
+    Swal.fire({
+        title: 'Quieres obtener importantes descuentos?',
+        text: "dejanos tu email",
+        input:'email',
+        icon: 'info',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Aceptar!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+    
+            'Excelente!',
+            'Pronto nos comunicaremos con usted.',
+            'success'
+            
+          )
+        }
+      })
+
+})
+
 class Paquetes {
     constructor(id, nombre, precio, img) {
         this.id = id;
@@ -83,6 +109,7 @@ const verCarrito = document.getElementById("verCarrito");
 
 verCarrito.addEventListener("click", () => {
     mostrarCarrito();
+    
 })
 
 const mostrarCarrito = () => {
@@ -130,6 +157,7 @@ const vaciarCarrito = document.getElementById("vaciarCarrito");
 
 vaciarCarrito.addEventListener("click", () => {
     eliminarTodoElCarrito();
+    
 })
 
 const eliminarTodoElCarrito = () => {
@@ -148,10 +176,15 @@ const calcularTotal = () => {
          
     })
     total.innerHTML = `Total $${totalCompra}`;
+    
+    
 }
-let contenedorPortada = document.getElementById("contenedorPortada")
-contenedorPortada.classList.add("col-xl-12", "col-md-12", "col-sm-12");
- contenedorPortada.innerHTML =`
+
+
+const contenedorPortada = document.getElementById("contenedorPortada");
+const contenedorPortaa = document.createElement("div");
+contenedorPortaa.classList.add("col-xl-12", "col-md-12", "col-sm-12");
+ contenedorPortaa.innerHTML =`
  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
  <div class="carousel-inner">
    <div class="carousel-item active">
@@ -165,4 +198,23 @@ contenedorPortada.classList.add("col-xl-12", "col-md-12", "col-sm-12");
    </div>
  </div>
 </div>`
-contenedorPortada.appendChild(contenedorPortada);
+contenedorPortada.appendChild(contenedorPortaa);
+
+
+setTimeout( () => {
+    document.body.style.background="radial-gradient(#bbd2c5, #536976)";
+}, 3000);
+
+
+const dolar = document.getElementById("dolar");
+
+const url = "https://criptoya.com/api/dolar";
+
+setInterval( () => {
+    fetch(url)
+        .then((response) => response.json())
+        .then(({blue, oficial, solidario, mep, ccl, ccb}) => {
+            dolar.innerHTML = `<p>Dolar Blue $${blue} - Dolar Oficial $${oficial} - Dolar Solidario $${solidario} - Dolar MEP $${mep} - Dolar CCL $${ccl} - Dolar CCB $${ccb} </p>`
+            valorDolar = blue;
+        })
+}, 2000)
